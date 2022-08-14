@@ -15,6 +15,24 @@ public class AirLine {
 		this.dataHandler = dataHandler;
 		dataHandler.setAirLine(airLineName);
 	}
+	public List<FlightAPI> getFlights() {
+		return flights;
+	}
+	public void setFlights(List<FlightAPI> flights) {
+		this.flights = flights;
+	}
+	public List<PersonAPI> getCustomers() {
+		return customers;
+	}
+	public void setCustomers(List<PersonAPI> customers) {
+		this.customers = customers;
+	}
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
 	public String getAirLineName() {
 		return airLineName;
 	}

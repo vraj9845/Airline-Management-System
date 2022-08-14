@@ -8,4 +8,10 @@ public class SummerPromoStrategy implements DiscountStrategyAPI {
 		double final_price= price-Summer_Promo_Reduce_Price;
 		return final_price;
 	}
+	
+	@Override
+	public String toString(){
+		String s="Summer_Promo off by 150";
+		return s;
+	}
 }
