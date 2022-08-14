@@ -6,4 +6,5 @@ public interface PersonAPI {
     int getBirthYear();
     int getBirthMonth();
     int getBirthDay();
+    int getCustomerID();
 }
