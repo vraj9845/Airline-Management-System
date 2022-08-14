@@ -8,4 +8,10 @@ public class ChristmasDiscountStrategy implements DiscountStrategyAPI {
 		double final_price= price-(Christmas_Discount_Percent*price);
 		return final_price;
 	}
+	
+	@Override
+	public String toString(){
+		String s="Christmas_Discount of 10%";
+		return s;
+	}
 }

@@ -8,4 +8,11 @@ public class VeteranDiscountStrategy implements DiscountStrategyAPI {
 		double final_price= price-(Veteran_Discount_Percent*price);
 		return final_price;
 	}
+	
+	@Override
+	public String toString(){
+		String s="Veteran_Discount of 50%";
+		return s;
+		
+	}
 }
