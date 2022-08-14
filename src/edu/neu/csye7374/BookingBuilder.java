@@ -1,5 +1,7 @@
 package edu.neu.csye7374;
 
+import java.util.UUID;
+
 public class BookingBuilder extends Builder{
     private Booking bookingObject = new Booking();
 
@@ -13,13 +15,9 @@ public class BookingBuilder extends Builder{
         bookingObject.setCustomer(new Customers());
     }
 
-    public void addBookingId(){
-        //TODO: Create bookingID
-        bookingObject.setBookingId(bookingObject.getBookingId());
-    }
-
     @Override
     public Booking createBooking(){
+        bookingObject.setBookingId(UUID.randomUUID());
         return bookingObject;
     }
 }
