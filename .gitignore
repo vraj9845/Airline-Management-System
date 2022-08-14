@@ -86,3 +86,7 @@ local.properties
 target/
 *.iml
 .idea/*
+
+*.csv
+
+.classpath
