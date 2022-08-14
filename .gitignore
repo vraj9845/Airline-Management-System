@@ -87,4 +87,7 @@ target/
 *.iml
 .idea/*
 
+*.csv
+
+.classpath
 *.DS_Store
