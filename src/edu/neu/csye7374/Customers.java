@@ -41,6 +41,14 @@ public class Customers implements PersonAPI{
     public int getBirthDay() {
         return birthDay;
     }
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("name: " + this.firstName + " " + this.lastName + "\n");
+    	sb.append("ID: " + customerID + "\n");
+    	sb.append("birthday: " + birthDay + "-" + birthMonth + "-" + birthYear + "\n");
+    	return sb.toString();
+    }
 
     public static class CustomersBuilder{
         private String firstName;
@@ -96,4 +104,6 @@ public class Customers implements PersonAPI{
         	return new Customers(this);
         }
     }
+    
+    
 }

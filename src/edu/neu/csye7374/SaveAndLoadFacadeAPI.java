@@ -3,6 +3,7 @@ package edu.neu.csye7374;
 import java.util.List;
 
 public interface SaveAndLoadFacadeAPI {
+	void setAirLine(String airLineName);
 	void saveFlights(List<FlightAPI> flights);
 	void saveCustomers(List<PersonAPI> customers);
 	void saveBookings(List<Booking> bookings);

@@ -15,7 +15,7 @@ public class ObjectsToString {
 		sb.append(flight.getPrice() + ',');
 		sb.append(flight.getStartSite() + ',');
 		sb.append(flight.getArriveSite() + ',');
-		sb.append(flight.getFlightDate().toString() + ',');
+		sb.append(flight.getFlightDate().toString());
 		return sb.toString();
 	}
 	
@@ -38,11 +38,13 @@ public class ObjectsToString {
 	
 	public String CustomerToString(PersonAPI customer) {
 		StringBuilder sb = new StringBuilder();
+		sb.append(customer.getCustomerID());
 		sb.append(customer.getFirstName() + ',');
 		sb.append(customer.getLastName() + ',');
 		sb.append(customer.getBirthYear() + ',');
 		sb.append(customer.getBirthMonth() + ',');
 		sb.append(customer.getBirthDay() + ',');
+		
 		return sb.toString();
 	}
 	
@@ -51,11 +53,13 @@ public class ObjectsToString {
 		Customers.CustomersBuilder cb = new CustomersBuilder();
 		
 		try {
-			cb.setFirstName(s[0]);
-			cb.setLastName(s[1]);
-			cb.setBirthYear(Integer.valueOf(s[2]));
-			cb.setBirthMonth(Integer.valueOf(s[3]));
-			cb.setBirthDay(Integer.valueOf(s[4]));
+			cb.setCustomerID(Integer.valueOf(s[0]));
+			cb.setFirstName(s[1]);
+			cb.setLastName(s[2]);
+			cb.setBirthYear(Integer.valueOf(s[3]));
+			cb.setBirthMonth(Integer.valueOf(s[4]));
+			cb.setBirthDay(Integer.valueOf(s[5]));
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,9 +69,9 @@ public class ObjectsToString {
 	
 	public String BookingToString(Booking booking) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(booking.getBookingId());
-		sb.append(booking.getFlight().getFlightID());
-		sb.append(booking.getCustomer().getCustomerID());
+		sb.append(booking.getBookingId() + ',');
+		sb.append(booking.getFlight().getFlightID() + ',');
+		sb.append(booking.getCustomer().getCustomerID() + ',');
 		return sb.toString();
 	}
 	
@@ -75,7 +79,7 @@ public class ObjectsToString {
 		String[] s = src.split(",");
 		Booking booking = new Booking();
 		try {
-			booking.setBookingId(UUID.fromString(s[0]));
+			booking.setBookingId(Integer.valueOf(s[0]));
 			int customerID = Integer.valueOf(s[1]);
 			int flightID = Integer.valueOf(s[2]);
 			PersonAPI customer = null;
@@ -86,6 +90,7 @@ public class ObjectsToString {
 					break;
 				}
 			}
+			
 			booking.setCustomer(customer);
 			for(FlightAPI f : flights) {
 				if(f.getFlightID() == flightID) {
