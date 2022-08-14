@@ -1,9 +1,11 @@
 package edu.neu.csye7374;
 
+import java.util.UUID;
+
 public class Booking {
     private FlightAPI flight;
     private PersonAPI customer;
-    private Long bookingId;
+    private UUID bookingId;
 
     public FlightAPI getFlight() {
         return flight;
@@ -21,11 +23,11 @@ public class Booking {
         this.customer = customer;
     }
 
-    public Long getBookingId() {
+    public UUID getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(Long bookingId) {
+    public void setBookingId(UUID bookingId) {
         this.bookingId = bookingId;
     }
 }
