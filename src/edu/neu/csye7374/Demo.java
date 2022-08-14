@@ -3,11 +3,8 @@ package edu.neu.csye7374;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Driver {
-
-	public static void main(String[] args) {
-
-		// TODO Auto-generated method stub
+public class Demo {
+	public static void demo() {
 		CsvHandler csv = new CsvHandler();
 		csv.getFile("hello.csv");
 		List<String> data = new ArrayList<String>();
@@ -19,7 +16,5 @@ public class Driver {
 		for(String line : res) {
 			System.out.println(line + "\n");
 		}
-
 	}
-
 }
