@@ -6,14 +6,21 @@ public class Customers implements PersonAPI{
     private int birthYear;
     private int birthMonth;
     private int birthDay;
+    private int customerID;
 
-    private Customers(CustomersBuilder customers){
+   
+	private Customers(CustomersBuilder customers){
         this.firstName = customers.firstName;
         this.lastName = customers.lastName;
         this.birthYear = customers.birthYear;
         this.birthMonth = customers.birthMonth;
         this.birthDay = customers.birthDay;
+        this.customerID = customers.customerID;
     }
+	
+	public int getCustomerID() {
+		return customerID;
+	}
 
     public String getFirstName() {
         return firstName;
@@ -34,6 +41,14 @@ public class Customers implements PersonAPI{
     public int getBirthDay() {
         return birthDay;
     }
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("name: " + this.firstName + " " + this.lastName + "\n");
+    	sb.append("ID: " + customerID + "\n");
+    	sb.append("birthday: " + birthDay + "-" + birthMonth + "-" + birthYear + "\n");
+    	return sb.toString();
+    }
 
     public static class CustomersBuilder{
         private String firstName;
@@ -41,7 +56,15 @@ public class Customers implements PersonAPI{
         private int birthYear;
         private int birthMonth;
         private int birthDay;
-        public String getFirstName() {
+        private int customerID;
+        public int getCustomerID() {
+			return customerID;
+		}
+		public CustomersBuilder setCustomerID(int customerID) {
+			this.customerID = customerID;
+			return this;
+		}
+		public String getFirstName() {
             return firstName;
         }
         public String getLastName() {
@@ -76,5 +99,11 @@ public class Customers implements PersonAPI{
             this.birthDay = birthDay;
             return this;
         }
+        
+        public Customers createCustomers() {
+        	return new Customers(this);
+        }
     }
+    
+    
 }

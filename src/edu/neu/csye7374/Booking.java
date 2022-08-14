@@ -1,33 +1,43 @@
 package edu.neu.csye7374;
 
-import java.util.UUID;
-
 public class Booking {
-    private Flight.FlightBuilder flight;
-    private Customers.CustomersBuilder customer;
-    private UUID bookingId;
+    private FlightAPI flight;
+    private PersonAPI customer;
+    private int bookingId;
 
-    public Flight.FlightBuilder getFlight() {
+    public FlightAPI getFlight() {
         return flight;
     }
 
-    public void setFlight(Flight.FlightBuilder flight) {
+    public Booking setFlight(FlightAPI flight) {
         this.flight = flight;
+        return this;
     }
 
-    public Customers.CustomersBuilder getCustomer() {
+    public PersonAPI getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customers.CustomersBuilder customer) {
+    public Booking setCustomer(PersonAPI customer) {
         this.customer = customer;
+        return this;
     }
 
-    public UUID getBookingId() {
+    public int getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(UUID bookingId) {
+    public Booking setBookingId(int bookingId) {
         this.bookingId = bookingId;
+        return this;
+    }
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("flightID: " +flight.getFlightID());
+    	sb.append("customerID: " + customer.getCustomerID());
+    	sb.append("bookingID: " + this.getBookingId());
+    	return sb.toString();
     }
 }
