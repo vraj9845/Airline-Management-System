@@ -5,10 +5,16 @@ import java.util.List;
 
 public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 	private FileHandlerAPI fileHandler;
-	private ObjectsToString converter;
+	private ObjectsToString converter = new ObjectsToString();
+	private String airLineName;
 	
 	public SaveAndLoadToLocal(FileHandlerAPI fileHandler) {
 		this.fileHandler = fileHandler;
+	}
+	
+	@Override
+	public void setAirLine(String airLineName) {
+		this.airLineName = airLineName;
 	}
 
 	@Override
@@ -18,7 +24,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(FlightAPI flight : flights) {
 			flightString.add(converter.FlightToString(flight));
 		}
-		fileHandler.addLineData(flightString, "flights.csv");
+		fileHandler.addLineData(flightString, airLineName+"Flights.csv");
 	}
 
 	@Override
@@ -28,7 +34,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(PersonAPI customer : customers) {
 			customerString.add(converter.CustomerToString(customer));
 		}
-		fileHandler.addLineData(customerString, "customers.csv");
+		fileHandler.addLineData(customerString, airLineName+"Customers.csv");
 
 	}
 	
@@ -38,13 +44,13 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(Booking booking : bookings) {
 			bookingString.add(converter.BookingToString(booking));
 		}
-		fileHandler.addLineData(bookingString, "bookings.csv");
+		fileHandler.addLineData(bookingString, airLineName+"Bookings.csv");
 	}
 
 	@Override
 	public List<FlightAPI> loadFlights() {
 		// TODO Auto-generated method stub
-		List<String> flightString = fileHandler.readFile("flights.csv");
+		List<String> flightString = fileHandler.readFile(airLineName+"Flights.csv");
 		List<FlightAPI> flights = new ArrayList<FlightAPI>();
 		for(String flightStr : flightString) {
 			flights.add(converter.StringToFlight(flightStr));
@@ -55,7 +61,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 	@Override
 	public List<PersonAPI> loadCustomers() {
 		// TODO Auto-generated method stub
-		List<String> customerString = fileHandler.readFile("customers.csv");
+		List<String> customerString = fileHandler.readFile(airLineName+"Customers.csv");
 		List<PersonAPI> customers = new ArrayList<PersonAPI>();
 		for(String customerStr : customerString) {
 			customers.add(converter.StringToCustomer(customerStr));
@@ -65,7 +71,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 	
 	@Override
 	public List<Booking> loadBookings(List<PersonAPI> customers, List<FlightAPI> flights){
-		List<String> bookingString = fileHandler.readFile("bookings.csv");
+		List<String> bookingString = fileHandler.readFile(airLineName+"Bookings.csv");
 		List<Booking> bookings = new ArrayList<Booking>();
 		for(String bookingStr : bookingString) {
 			bookings.add(converter.StringToBooking(bookingStr, customers, flights));

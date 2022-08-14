@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Booking {
     private FlightAPI flight;
     private PersonAPI customer;
-    private UUID bookingId;
+    private int bookingId;
 
     public FlightAPI getFlight() {
         return flight;
@@ -25,12 +25,21 @@ public class Booking {
         return this;
     }
 
-    public UUID getBookingId() {
+    public int getBookingId() {
         return bookingId;
     }
 
-    public Booking setBookingId(UUID bookingId) {
+    public Booking setBookingId(int bookingId) {
         this.bookingId = bookingId;
         return this;
+    }
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("flightID: " +flight.getFlightID());
+    	sb.append("customerID: " + customer.getCustomerID());
+    	sb.append("bookingID: " + this.getBookingId());
+    	return sb.toString();
     }
 }

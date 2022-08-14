@@ -39,7 +39,14 @@ public class Flight implements FlightAPI{
     public void setPrice(double price) {
         this.price = price;
     }
-    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("FlightID: "+ flightID + "\n");
+    	sb.append("date: " + flightDate + "\n");
+    	sb.append(startSite + " -> " + arriveSite);
+    	return sb.toString();
+    }
     public static class FlightBuilder {
     	private int flightID;
 		private double price;

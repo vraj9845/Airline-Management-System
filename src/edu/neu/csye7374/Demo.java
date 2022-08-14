@@ -1,20 +1,23 @@
 package edu.neu.csye7374;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Demo {
 	public static void demo() {
-		CsvHandler csv = new CsvHandler();
-		csv.getFile("hello.csv");
-		List<String> data = new ArrayList<String>();
-		data.add("a,b,c");
-		data.add("a,b,c");
-		data.add("a,b,c");
-		csv.addLineData(data, "hello.csv");
-		List<String> res = csv.readFile("hello.csv");
-		for(String line : res) {
-			System.out.println(line + "\n");
-		}
+		AirLine.AirLineFactory airLineFactory = AirLine.AirLineFactory.getInstance();
+		AirLine United = airLineFactory.getObject();
+		
+		FileHandlerAPI csvHandler = new CsvHandler();
+		SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
+//		United.setAirLineName("United");
+		AirLine Qatar = airLineFactory.getObject();
+		Qatar.setAirLineName("Qatar");
+		Qatar.setDataHandler(dataHandler);
+		
+//		United.loadData();
+		Qatar.loadData();
+		System.out.println(Qatar);
 	}
 }
