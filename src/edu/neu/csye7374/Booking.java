@@ -3,23 +3,23 @@ package edu.neu.csye7374;
 import java.util.UUID;
 
 public class Booking {
-    private FlightAPI flight;
-    private PersonAPI customer;
+    private Flight.FlightBuilder flight;
+    private Customers.CustomersBuilder customer;
     private UUID bookingId;
 
-    public FlightAPI getFlight() {
+    public Flight.FlightBuilder getFlight() {
         return flight;
     }
 
-    public void setFlight(FlightAPI flight) {
+    public void setFlight(Flight.FlightBuilder flight) {
         this.flight = flight;
     }
 
-    public PersonAPI getCustomer() {
+    public Customers.CustomersBuilder getCustomer() {
         return customer;
     }
 
-    public void setCustomer(PersonAPI customer) {
+    public void setCustomer(Customers.CustomersBuilder customer) {
         this.customer = customer;
     }
 

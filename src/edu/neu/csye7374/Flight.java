@@ -40,7 +40,7 @@ public class Flight implements FlightAPI{
         this.price = price;
     }
     
-    public class FlightBuilder {
+    public static class FlightBuilder {
     	private int flightID;
 		private double price;
         private Date flightDate;

@@ -7,12 +7,12 @@ public class BookingBuilder extends Builder{
 
     @Override
     public void buildFlight(){
-        bookingObject.setFlight(new Flight());
+        bookingObject.setFlight(new Flight.FlightBuilder());
     }
 
     @Override
     public void buildCustomer(){
-        bookingObject.setCustomer(new Customers());
+        bookingObject.setCustomer(new Customers.CustomersBuilder());
     }
 
     @Override
