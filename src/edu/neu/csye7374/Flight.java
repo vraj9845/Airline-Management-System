@@ -28,4 +28,8 @@ public class Flight implements FlightAPI{
     public String getArriveSite() {
         return arriveSite;
     }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
