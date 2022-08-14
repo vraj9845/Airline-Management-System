@@ -86,3 +86,8 @@ local.properties
 target/
 *.iml
 .idea/*
+
+*.csv
+
+.classpath
+*.DS_Store
