@@ -1,7 +1,5 @@
 package edu.neu.csye7374;
 
-import java.util.UUID;
-
 public class Booking {
     private FlightAPI flight;
     private PersonAPI customer;
