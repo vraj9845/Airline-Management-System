@@ -19,9 +19,17 @@ public class FlightOnBoarding implements FlightStateAPI{
     }
 
     @Override
-    public void descent() {
-System.out.println("Error: Cannot go to descent state.");
+    public void delay() {
+        flightState.setState(flightState.getDelayed());
+        System.out.println("Cannot On board FlightID: "+flightState.getFlightID()+" as flight is delayed.");
     }
+
+    @Override
+    public void cancelled() {
+        flightState.setState(flightState.getCancelled());
+        System.out.println("Cannot On board as flightID: "+ flightState.getFlightID()+" is Cancelled.");
+    }
+
 
     @Override
     public void offboarding() {

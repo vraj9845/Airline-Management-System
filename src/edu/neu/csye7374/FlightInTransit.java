@@ -14,14 +14,19 @@ public class FlightInTransit implements FlightStateAPI{
 
     @Override
     public void inTransit() {
-System.out.println("Already in Transit!");
+System.out.println("FLightID: " +flightState.getFlightID() + " Already in Transit!");
     }
 
     @Override
-    public void descent() {
-        flightState.setState(flightState.getDescent());
-        System.out.println("Flight is descending now Closed.");
+    public void delay() {
+        System.out.println("Error: cannot go to delay state.");
     }
+
+    @Override
+    public void cancelled() {
+        System.out.println("Error: cannot go to cancelled state.");
+    }
+
 
     @Override
     public void offboarding() {

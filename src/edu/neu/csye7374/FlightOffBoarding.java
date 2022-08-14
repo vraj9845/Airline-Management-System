@@ -10,7 +10,7 @@ public class FlightOffBoarding implements FlightStateAPI{
     @Override
     public void onBoarding() {
         flightState.setState(flightState.getFlightOnBoarding());
-        System.out.println("Passengers are On Boarding the plane!");
+        System.out.println("Passengers are On Boarding the FlightID: "+flightState.getFlightID());
     }
 
     @Override
@@ -19,12 +19,17 @@ public class FlightOffBoarding implements FlightStateAPI{
     }
 
     @Override
-    public void descent() {
-        System.out.println("Flight is already in Descent State!");
+    public void delay() {
+        System.out.println("Error: cannot go to delay state.");
+    }
+
+    @Override
+    public void cancelled() {
+        System.out.println("Error: cannot go to cancelled state.");
     }
 
     @Override
     public void offboarding() {
-        System.out.println("Flight is already in Off Boarding State!");
+        System.out.println("FlightID: "+flightState.getFlightID()+" is already in Off Boarding State!");
     }
 }
