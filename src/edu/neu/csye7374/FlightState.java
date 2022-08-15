@@ -1,4 +1,4 @@
-package src.edu.neu.csye7374;
+package edu.neu.csye7374;
 
 public class FlightState implements FlightStateAPI{
     private int flightID;
@@ -7,18 +7,33 @@ public class FlightState implements FlightStateAPI{
     private FlightStateAPI offBoarding;
     private FlightStateAPI delayed;
     private FlightStateAPI cancelled;
+    private boolean isScheduled;
     private FlightStateAPI state;
 
-    public FlightState(){
+    public FlightState(int flightID){
+        this.flightID= flightID;
         this.flightOnBoarding = new FlightOnBoarding(this);
         this.inTransit = new FlightInTransit(this);
         this.offBoarding = new FlightOffBoarding(this);
         this.delayed = new FlightDelayed(this);
         this.cancelled = new FlightCancelled(this);
         this.state = new FlightOnBoarding(this);
+        this.isScheduled=true;
+        System.out.println("FlightID:"+ flightID + " Is now scheduled.");
     }
 
-    public int getFlightID() {
+    
+    public boolean isScheduled() {
+		return isScheduled;
+	}
+
+
+	public void setScheduled(boolean isScheduled) {
+		this.isScheduled = isScheduled;
+	}
+
+
+	public int getFlightID() {
         return flightID;
     }
 
@@ -67,12 +82,15 @@ public class FlightState implements FlightStateAPI{
     }
 
     public FlightStateAPI getState() {
+    	if(this.isScheduled) System.out.println("FlightID: "+this.flightID+"  is scheduled.");
         return state;
     }
 
     public void setState(FlightStateAPI state) {
+    	this.isScheduled=false;
         this.state = state;
     }
+    
 
     @Override
     public void onBoarding() {
@@ -97,12 +115,12 @@ this.state.offboarding();
         this.state.cancelled();
     }
 
-    public static void demoFlightStates(){
-        System.out.println("Implementing the state pattern");
-        FlightState fs = new FlightState();
-        fs.onBoarding();
-        fs.inTransit();
-        fs.delay();
-        fs.offboarding();
-    }
+//    public static void demoFlightStates(){
+//        System.out.println("Implementing the state pattern");
+//        FlightState fs = new FlightState();
+//        fs.onBoarding();
+//        fs.inTransit();
+//        fs.delay();
+//        fs.offboarding();
+//    }
 }

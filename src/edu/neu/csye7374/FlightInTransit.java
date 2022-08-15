@@ -1,4 +1,4 @@
-package src.edu.neu.csye7374;
+package edu.neu.csye7374;
 
 public class FlightInTransit implements FlightStateAPI{
     public static FlightState flightState;

@@ -1,4 +1,4 @@
-package src.edu.neu.csye7374;
+package edu.neu.csye7374;
 
 public class FlightOnBoarding implements FlightStateAPI{
     public static FlightState flightState;
@@ -9,13 +9,13 @@ public class FlightOnBoarding implements FlightStateAPI{
 
     @Override
     public void onBoarding() {
-        System.out.println("Already On Boarding!.");
+        System.out.println("FlightID: "+ flightState.getFlightID()+" On Boarding!.");
     }
 
     @Override
     public void inTransit() {
         flightState.setState(flightState.getInTransit());
-        System.out.println("Flight is in Transit.");
+        System.out.println("FlightID: "+ flightState.getFlightID()+" is in Transit.");
     }
 
     @Override
