@@ -61,26 +61,35 @@ public class AirLine {
 		flights.add(flight);
 		flightCount = flights.size();
 	}
-	public void addCustomers(PersonAPI customer) {
+	public void addCustomer(PersonAPI customer) {
 		customers.add(customer);
 		customerCount = customers.size();
 	}
 	
-	public void addBookings(Booking booking) {
+	public void addBooking(Booking booking) {
 		bookings.add(booking);
 		bookingCount = bookings.size();
 	}
 
-	public void saveFlights(List<FlightAPI> flight){
-		dataHandler.saveFlights(flight);
+	public void saveFlights(List<FlightAPI> flights){
+		for(FlightAPI flight : flights) {
+			addFlight(flight);
+		}
+		dataHandler.saveFlights(this.flights);
 	}
 
-	public void saveCustomers(List<PersonAPI> customer){
-		dataHandler.saveCustomers(customer);
+	public void saveCustomers(List<PersonAPI> customers){
+		for(PersonAPI customer : customers) {
+			addCustomer(customer);
+		}
+		dataHandler.saveCustomers(this.customers);
 	}
 
-	public void saveBooking(List<Booking> booking){
-		dataHandler.saveBookings(booking);
+	public void saveBooking(List<Booking> bookings){
+		for(Booking booking : bookings) {
+			addBooking(booking);
+		}
+		dataHandler.saveBookings(this.bookings);
 	}
 	
 	public static class AirLineFactory{

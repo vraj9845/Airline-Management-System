@@ -15,9 +15,10 @@ public class ObjectsToString {
 		sb.append(String.valueOf(flight.getPrice()) + ',');
 		sb.append(flight.getStartSite() + ',');
 		sb.append(flight.getArriveSite() + ',');
-		sb.append(flight.getFlightDate().toString());
-		System.out.println(flight);
-		System.out.println(sb);
+		sb.append(new SimpleDateFormat("dd/MM/yyyy").format(flight.getFlightDate()));
+//		sb.append(flight.getFlightDate().toString());
+//		System.out.println(flight);
+//		System.out.println(sb);
 		return sb.toString();
 	}
 	
