@@ -1,6 +1,6 @@
 package edu.neu.csye7374;
 
-import src.edu.neu.csye7374.FlightState;
+import edu.neu.csye7374.FlightState;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +35,11 @@ public class Demo {
 		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
 		System.out.println("After applying Christmas Discount:");
 		System.out.println("Price of flight"+Coffers.CalculateDiscount(flights.get(0).getPrice()));
+		
+		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
+		System.out.println("After applying Summer Discount:");
+		System.out.println("Price of flight"+summeroffers.CalculateDiscount(flights.get(0).getPrice()));
+
 		
 		
 		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
@@ -75,8 +80,30 @@ public class Demo {
 		bookings.get(2).getFlight().setPrice(f3.getBasePrice());
 		System.out.println("details of booking" + bookings.get(2).toString() + "Price :" + bookings.get(2).getFlight().getPrice() );
 		
-		System.out.println("Price of flight"+offers.CalculateDiscount(flights.get(0).getPrice()));
+	
+		System.out.println("**********************************************");
+		
+        USCurrency us_currency = new USCurrency();
+        FlightPriceCurrency Ifpc = new INRCurrency();
+        FlightPriceCurrency Cfpc = new CanadaCurrency();
+  
 
+        FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
+  
+        System.out.println("US Currency...LegacyAPI");
+        us_currency.showpriceCurrency(bookings.get(0).getFlight().getPrice());
+  
+        System.out.println("Flight Price in INR Currency...Client API");
+        Ifpc.showcurrency(bookings.get(0).getFlight().getPrice());
+  
+        System.out.println("Flight Price in Canadian Dollar Currency...Client API");
+        Cfpc.showcurrency(bookings.get(0).getFlight().getPrice());
+        
+        System.out.println("CurrencyAdapter...adapter over Legacy API");
+        c_adapter.showcurrency(bookings.get(0).getFlight().getPrice());
+		
+		
+		
 
 		System.out.println("Implementing the state pattern");
 		FlightState fs = new FlightState(flights.get(0).getFlightID());
