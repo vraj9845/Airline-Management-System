@@ -1,16 +1,15 @@
 package edu.neu.csye7374;
 public class ExtraLegRoomUpgrade extends FlightUpgrade{
-
-	public ExtraLegRoomUpgrade(FlightUpgradeImplementation upgradeOptions) {
+	double extraLegRoomCharge = 50;
+	public ExtraLegRoomUpgrade(FlightUpgradeOptions upgradeOptions) {
 		super(upgradeOptions);
-		// TODO Auto-generated constructor stub
 	}
 	
-	public String basePrice() {
-		return super.basePrice() + applyExtraLegRoomCharge();
+	public double basePrice() {
+		return this.upgradeOptions.getBasePrice() + extraLegRoomCharge;
 	}
 	
-	public String applyExtraLegRoomCharge() {
-		return "added 50$ to total bill for extra leg room";
+	public String getUpgradeDescription() {
+		return this.upgradeOptions.getUpgradeDescription() + " added 50$ to total bill for extra leg room";
 	}
 }

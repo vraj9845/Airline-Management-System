@@ -35,7 +35,8 @@ public class Flight implements FlightAPI{
     public String getArriveSite() {
         return arriveSite;
     }
-
+    
+    @Override
     public void setPrice(double price) {
         this.price = price;
     }
