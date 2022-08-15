@@ -1,6 +1,8 @@
 package edu.neu.csye7374;
 
+
 import edu.neu.csye7374.FlightState;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -47,13 +49,13 @@ public class Demo {
 				.createCustomers());
 		Qatar.saveCustomers(customersList);
 
-		List<Booking> bookings = new ArrayList<>();
+		List<Booking> bookingsList = new ArrayList<>();
 		Booking booking = new Booking();
 		booking.setFlight(Qatar.getFlights().get(1));
 		booking.setCustomer(Qatar.getCustomers().get(0));
 		booking.setBookingId(4);
-		bookings.add(booking);
-		Qatar.saveBooking(bookings);
+		bookingsList.add(booking);
+		Qatar.saveBooking(bookingsList);
 
 		//Available Discounts and Promo
 		DiscountStrategyAPI Voffers = new VeteranDiscountStrategy();
@@ -69,16 +71,14 @@ public class Demo {
 		System.out.println("After applying Christmas Discount:");
 		System.out.println("Price of flight"+Coffers.CalculateDiscount(flights.get(0).getPrice()));
 		
-<<<<<<< HEAD
+
 		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
 		System.out.println("After applying Summer Discount:");
 		System.out.println("Price of flight"+summeroffers.CalculateDiscount(flights.get(0).getPrice()));
 
 		
 		
-=======
 
->>>>>>> 16c6b472c4a55eba1f2396113a07c3e181a2fbae
 		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
 		System.out.println("After applying Veteran's Discount:");
 
@@ -116,7 +116,7 @@ public class Demo {
 		System.out.println(f3.getUpgradeDescription());
 		bookings.get(2).getFlight().setPrice(f3.getBasePrice());
 		System.out.println("details of booking" + bookings.get(2).toString() + "Price :" + bookings.get(2).getFlight().getPrice() );
-<<<<<<< HEAD
+
 		
 	
 		System.out.println("**********************************************");
@@ -125,10 +125,11 @@ public class Demo {
         FlightPriceCurrency Ifpc = new INRCurrency();
         FlightPriceCurrency Cfpc = new CanadaCurrency();
   
-=======
 
-		System.out.println("Price of flight"+offers.CalculateDiscount(flights.get(0).getPrice()));
->>>>>>> 16c6b472c4a55eba1f2396113a07c3e181a2fbae
+
+
+
+
 
         FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
   
@@ -143,7 +144,6 @@ public class Demo {
         
         System.out.println("CurrencyAdapter...adapter over Legacy API");
         c_adapter.showcurrency(bookings.get(0).getFlight().getPrice());
-		
 		
 		
 
