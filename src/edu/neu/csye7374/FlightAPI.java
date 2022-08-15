@@ -8,5 +8,5 @@ public interface FlightAPI {
     Date getFlightDate();
     String getStartSite();
     String getArriveSite();
-
+    void setPrice(double price);
 }
