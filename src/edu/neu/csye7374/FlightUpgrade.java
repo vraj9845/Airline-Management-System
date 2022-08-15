@@ -1,14 +1,19 @@
 package edu.neu.csye7374;
-public class FlightUpgrade extends FlightUpgradeImplementation{
-	FlightUpgradeOptions upgradeOptions = null;
+public class FlightUpgrade implements FlightUpgradeOptions{
+	FlightUpgradeOptions upgradeOptions;
 	
-	public FlightUpgrade(FlightUpgradeImplementation upgradeOptions) {
-		super();
+	public FlightUpgrade(FlightUpgradeOptions upgradeOptions) {
 		this.upgradeOptions = upgradeOptions;
 	}
 	
     @Override
-    public String basePrice() {
-        return upgradeOptions.basePrice();
+    public double getBasePrice() {
+        return this.upgradeOptions.getBasePrice();
     }
+    
+	@Override
+	public String getUpgradeDescription() {
+		
+		return this.upgradeOptions.getUpgradeDescription();
+	}
 }
