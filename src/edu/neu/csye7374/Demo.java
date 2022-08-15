@@ -95,7 +95,7 @@ public class Demo {
 
 		System.out.println("**********************************************");
 //
-		System.out.println("details of flight one"+flights.get(0).toString());
+		System.out.println("details of flight 1. "+flights.get(0).toString());
 		System.out.println("details of booking" + bookings.get(0).toString() + "Price :" + bookings.get(0).getFlight().getPrice() );
 		FlightUpgradeOptions f1 = new PremiumUpgrade(new FlightUpgradeImplementation(bookings.get(0)));
 		System.out.println(f1.getUpgradeDescription());
@@ -103,14 +103,14 @@ public class Demo {
 		System.out.println("details of booking" + bookings.get(0).toString() + "Price :" + bookings.get(0).getFlight().getPrice() );
 
 
-		System.out.println("details of flight one"+flights.get(1).toString());
+		System.out.println("details of flight 2. "+flights.get(1).toString());
 		System.out.println("details of booking" + bookings.get(1).toString() + "Price :" + bookings.get(1).getFlight().getPrice() );
 		FlightUpgradeOptions f2 = new ExtraLuggageUpgrade(new FlightUpgradeImplementation(bookings.get(1)));
 		System.out.println(f2.getUpgradeDescription());
 		bookings.get(1).getFlight().setPrice(f2.getBasePrice());
 		System.out.println("details of booking" + bookings.get(1).toString() + "Price :" + bookings.get(1).getFlight().getPrice() );
 
-		System.out.println("details of flight one"+flights.get(2).toString());
+		System.out.println("details of flight 3. "+flights.get(2).toString());
 		System.out.println("details of booking" + bookings.get(2).toString() + "Price :" + bookings.get(2).getFlight().getPrice() );
 		FlightUpgradeOptions f3 = new PremiumUpgrade(new ExtraLuggageUpgrade(new FlightUpgradeImplementation(bookings.get(2))));
 		System.out.println(f3.getUpgradeDescription());
@@ -124,12 +124,6 @@ public class Demo {
         USCurrency us_currency = new USCurrency();
         FlightPriceCurrency Ifpc = new INRCurrency();
         FlightPriceCurrency Cfpc = new CanadaCurrency();
-  
-
-
-
-
-
 
         FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
   
@@ -146,7 +140,7 @@ public class Demo {
         c_adapter.showcurrency(bookings.get(0).getFlight().getPrice());
 		
 		
-
+		System.out.println("**********************************************");
 		System.out.println("Implementing the state pattern");
 		FlightState fs = new FlightState(flights.get(0).getFlightID());
 		fs.onBoarding();
