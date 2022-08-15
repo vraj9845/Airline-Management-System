@@ -42,7 +42,7 @@ public class Flight implements FlightAPI{
     @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder();
-    	sb.append("FlightID: "+ flightID + "\n");
+    	sb.append("FlightID: "+ flightID + " .price: " + price + "$\n");
     	sb.append("date: " + flightDate + "\n");
     	sb.append(startSite + " -> " + arriveSite);
     	return sb.toString();

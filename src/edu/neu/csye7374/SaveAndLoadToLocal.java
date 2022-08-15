@@ -24,6 +24,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(FlightAPI flight : flights) {
 			flightString.add(converter.FlightToString(flight));
 		}
+//		System.out.println(flightString);
 		fileHandler.addLineData(flightString, airLineName+"Flights.csv");
 	}
 
@@ -34,6 +35,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(PersonAPI customer : customers) {
 			customerString.add(converter.CustomerToString(customer));
 		}
+//		System.out.println(customerString);
 		fileHandler.addLineData(customerString, airLineName+"Customers.csv");
 
 	}
@@ -44,6 +46,7 @@ public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
 		for(Booking booking : bookings) {
 			bookingString.add(converter.BookingToString(booking));
 		}
+//		System.out.println(bookingString);
 		fileHandler.addLineData(bookingString, airLineName+"Bookings.csv");
 	}
 

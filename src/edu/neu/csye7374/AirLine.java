@@ -8,6 +8,7 @@ public class AirLine {
 	public List<FlightAPI> flights;
 	public List<PersonAPI> customers;
 	public List<Booking> bookings;
+	public int customerCount, flightCount, bookingCount;
 	public SaveAndLoadFacadeAPI getDataHandler() {
 		return dataHandler;
 	}
@@ -44,8 +45,30 @@ public class AirLine {
 	
 	public void loadData() {
 		flights = dataHandler.loadFlights();
+		flightCount = flights.size();
 		customers = dataHandler.loadCustomers();
+		customerCount = customers.size();
 		bookings = dataHandler.loadBookings(customers, flights);
+		bookingCount = bookings.size();
+	}
+	
+	public void saveData() {
+		dataHandler.saveFlights(flights);
+		dataHandler.saveCustomers(customers);
+		dataHandler.saveBookings(bookings);
+	}
+	public void addFlight(FlightAPI flight) {
+		flights.add(flight);
+		flightCount = flights.size();
+	}
+	public void addCustomers(PersonAPI customer) {
+		customers.add(customer);
+		customerCount = customers.size();
+	}
+	
+	public void addBookings(Booking booking) {
+		bookings.add(booking);
+		bookingCount = bookings.size();
 	}
 	
 	public static class AirLineFactory{

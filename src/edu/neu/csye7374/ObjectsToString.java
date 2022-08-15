@@ -11,11 +11,13 @@ import edu.neu.csye7374.Flight.FlightBuilder;
 public class ObjectsToString {
 	public String FlightToString(FlightAPI flight) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(flight.getFlightID() + ',');
-		sb.append(flight.getPrice() + ',');
+		sb.append(String.valueOf(flight.getFlightID()) + ',');
+		sb.append(String.valueOf(flight.getPrice()) + ',');
 		sb.append(flight.getStartSite() + ',');
 		sb.append(flight.getArriveSite() + ',');
 		sb.append(flight.getFlightDate().toString());
+		System.out.println(flight);
+		System.out.println(sb);
 		return sb.toString();
 	}
 	
@@ -38,12 +40,12 @@ public class ObjectsToString {
 	
 	public String CustomerToString(PersonAPI customer) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(customer.getCustomerID());
+		sb.append(String.valueOf(customer.getCustomerID()) + ',');
 		sb.append(customer.getFirstName() + ',');
 		sb.append(customer.getLastName() + ',');
-		sb.append(customer.getBirthYear() + ',');
-		sb.append(customer.getBirthMonth() + ',');
-		sb.append(customer.getBirthDay() + ',');
+		sb.append(String.valueOf(customer.getBirthYear()) + ',');
+		sb.append(String.valueOf(customer.getBirthMonth()) + ',');
+		sb.append(String.valueOf(customer.getBirthDay()));
 		
 		return sb.toString();
 	}
@@ -69,9 +71,9 @@ public class ObjectsToString {
 	
 	public String BookingToString(Booking booking) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(booking.getBookingId() + ',');
-		sb.append(booking.getFlight().getFlightID() + ',');
-		sb.append(booking.getCustomer().getCustomerID() + ',');
+		sb.append(String.valueOf(booking.getBookingId()) + ',');
+		sb.append(String.valueOf(booking.getFlight().getFlightID()) + ',');
+		sb.append(String.valueOf(booking.getCustomer().getCustomerID()));
 		return sb.toString();
 	}
 	
