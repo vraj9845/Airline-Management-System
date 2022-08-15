@@ -1,7 +1,4 @@
 package edu.neu.csye7374;
-
-import src.edu.neu.csye7374.FlightState;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,13 +44,13 @@ public class Demo {
 				.createCustomers());
 		Qatar.saveCustomers(customersList);
 
-		List<Booking> bookings = new ArrayList<>();
+		List<Booking> bookingsList = new ArrayList<>();
 		Booking booking = new Booking();
 		booking.setFlight(Qatar.getFlights().get(1));
 		booking.setCustomer(Qatar.getCustomers().get(0));
 		booking.setBookingId(4);
-		bookings.add(booking);
-		Qatar.saveBooking(bookings);
+		bookingsList.add(booking);
+		Qatar.saveBooking(bookingsList);
 
 		//Available Discounts and Promo
 		DiscountStrategyAPI Voffers = new VeteranDiscountStrategy();
@@ -108,7 +105,7 @@ public class Demo {
 		bookings.get(2).getFlight().setPrice(f3.getBasePrice());
 		System.out.println("details of booking" + bookings.get(2).toString() + "Price :" + bookings.get(2).getFlight().getPrice() );
 
-		System.out.println("Price of flight"+offers.CalculateDiscount(flights.get(0).getPrice()));
+		System.out.println("Price of flight"+Voffers.CalculateDiscount(flights.get(0).getPrice()));
 
 
 		System.out.println("Implementing the state pattern");
