@@ -47,6 +47,18 @@ public class AirLine {
 		customers = dataHandler.loadCustomers();
 		bookings = dataHandler.loadBookings(customers, flights);
 	}
+
+	public void saveFlights(List<FlightAPI> flight){
+		dataHandler.saveFlights(flight);
+	}
+
+	public void saveCustomers(List<PersonAPI> customer){
+		dataHandler.saveCustomers(customer);
+	}
+
+	public void saveBooking(List<Booking> booking){
+		dataHandler.saveBookings(booking);
+	}
 	
 	public static class AirLineFactory{
 		public static AirLine.AirLineFactory instance = new AirLineFactory();
