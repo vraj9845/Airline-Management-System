@@ -12,7 +12,9 @@ import java.util.List;
 
 
 public class CsvHandler implements FileHandlerAPI {
-
+	/*
+	 * implementation of FileHandlerAPI that stores and loads data locally in .csv file format
+	 */
 	@Override
 	public File getFile(String fileName) {
 		// TODO Auto-generated method stub

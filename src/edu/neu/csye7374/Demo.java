@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 public class Demo {
+	/*
+	 * contains only static demo() method to showcase all design patterns and intended program workflow
+	 * console output reflects working of the demo() method
+	 */
 	public static void demo() throws ParseException {
 		System.out.println("\n\t" + "Create airline by Singleton Factory...");
 
@@ -18,11 +22,27 @@ public class Demo {
 		System.out.println("\n\t" + "Create airline by Singleton Factory... done!");
 
 		System.out.println("\n\t" + "Load data by Facade Pattern...");
-
+		
+		
+		//implementation of FileHandlerAPI created to handle saving flight, customer and booking
+		System.out.println("implementation of FileHandlerAPI created to handle saving flight, customer and booking");
+		//CsvHandler stores data in csv format
+		System.out.println("CsvHandler stores data in csv format");
 		FileHandlerAPI csvHandler = new CsvHandler();
+		
+		//implementation of FileHandlerAPI created to store/load data in specified machine
+		System.out.println("implementation of FileHandlerAPI created to store/load data in specified machine");
+		//SaveAndLoadToLocal manages data locally
+		System.out.println("SaveAndLoadToLocal manages data locally");
 		SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
+		
+		//data handling abstracted from AirLine object by simply encapsulating complexities in dataHandler object
+		System.out.println("data handling abstracted from AirLine object by simply encapsulating complexities in dataHandler object");
 		Qatar.setDataHandler(dataHandler);
+		
+		//data loaded
 		Qatar.loadData();
+		System.out.println("data loaded");
 		System.out.println(Qatar);
 
 		System.out.println("\n\t" + "Load data by Facade Pattern... done!");

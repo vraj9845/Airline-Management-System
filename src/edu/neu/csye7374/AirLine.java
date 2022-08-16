@@ -3,6 +3,12 @@ package edu.neu.csye7374;
 import java.util.List;
 
 public class AirLine {
+	/*
+	 * AirLine class to represent and AirLine company
+	 * Contains Lists of flights, customers and bookings
+	 * Data persistence is managed via dataHandler of type SaveAndLoadFacadeAPI
+	 * loadData() and saveData() need to be used to load and save data respectively
+	 */
 	public String airLineName = null;
 	public SaveAndLoadFacadeAPI dataHandler;
 	public List<FlightAPI> flights;
@@ -93,6 +99,11 @@ public class AirLine {
 	}
 	
 	public static class AirLineFactory{
+		/*
+		 * Factory method pattern for AirLine object creation
+		 * AirLineFactory implements Eager Singleton Design pattern, since only one instance is required to create AirLine objects
+		 */
+	
 		public static AirLine.AirLineFactory instance = new AirLineFactory();
 		private AirLineFactory() {
 			

@@ -9,6 +9,9 @@ import edu.neu.csye7374.Customers.CustomersBuilder;
 import edu.neu.csye7374.Flight.FlightBuilder;
 
 public class ObjectsToString {
+	/*
+	 * ObjectsToString is used to convert flight, customer and booking data into csv Strings
+	 */
 	public String FlightToString(FlightAPI flight) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(String.valueOf(flight.getFlightID()) + ',');

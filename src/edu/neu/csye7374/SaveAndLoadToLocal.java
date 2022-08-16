@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaveAndLoadToLocal implements SaveAndLoadFacadeAPI {
+	/*
+	 * implementation of SaveAndLoadFacadeAPI that saves and loads data locally
+	 * manner of saving is specified by implementation of FileHandlerAPI
+	 * ObjectsToString is used to convert flight, customer and booking data into csv Strings
+	 */
 	private FileHandlerAPI fileHandler;
 	private ObjectsToString converter = new ObjectsToString();
 	private String airLineName;
