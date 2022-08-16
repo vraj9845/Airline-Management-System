@@ -9,19 +9,26 @@ import java.util.List;
 
 public class Demo {
 	public static void demo() throws ParseException {
-		AirLine.AirLineFactory airLineFactory = AirLine.AirLineFactory.getInstance();
-		
-		FileHandlerAPI csvHandler = new CsvHandler();
-		SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
+		System.out.println("\n\t" + "Create airline by Singleton Factory...");
 
+		AirLine.AirLineFactory airLineFactory = AirLine.AirLineFactory.getInstance();
 		AirLine Qatar = airLineFactory.getObject();
 		Qatar.setAirLineName("Qatar");
-		Qatar.setDataHandler(dataHandler);
 
+		System.out.println("\n\t" + "Create airline by Singleton Factory... done!");
+
+		System.out.println("\n\t" + "Load data by Facade Pattern...");
+
+		FileHandlerAPI csvHandler = new CsvHandler();
+		SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
+		Qatar.setDataHandler(dataHandler);
 		Qatar.loadData();
 		System.out.println(Qatar);
 
-		//Create object using Builder Pattern
+		System.out.println("\n\t" + "Load data by Facade Pattern... done!");
+
+		System.out.println("\n\t" + "Create Flights and Customers Object by Builder Pattern...");
+
 		Date date = new SimpleDateFormat("MM-dd-yyyy").parse("12-01-2022");
 		List<FlightAPI> flightList = new ArrayList<>();
 		flightList.add(new Flight.FlightBuilder()
@@ -31,7 +38,6 @@ public class Demo {
 				.setStartSite("Boston")
 				.setArriveSite("Iceland")
 				.createFlight());
-		Qatar.saveFlights(flightList);
 
 		List<PersonAPI> customersList = new ArrayList<>();
 		customersList.add(new Customers.CustomersBuilder()
@@ -42,7 +48,16 @@ public class Demo {
 				.setBirthMonth(10)
 				.setBirthDay(28)
 				.createCustomers());
+		System.out.println("\n\t" + "Create Flights and Customers Object by Builder Pattern... done!");
+
+		System.out.println("\n\t" + "Save data to csv file by Facade Pattern...");
+
+		Qatar.saveFlights(flightList);
 		Qatar.saveCustomers(customersList);
+
+		System.out.println("\n\t" + "Save data to csv file by Facade Pattern...done!");
+
+		System.out.println("\n\t" + "Create new booking object...");
 
 		List<Booking> bookingsList = new ArrayList<>();
 		Booking booking = new Booking();
@@ -50,7 +65,16 @@ public class Demo {
 		booking.setCustomer(Qatar.getCustomers().get(0));
 		booking.setBookingId(4);
 		bookingsList.add(booking);
+
+		System.out.println("\n\t" + "Create new booking object... done!");
+
+		System.out.println("\n\t" + "Save booking data to csv file by Facade Pattern...");
+
 		Qatar.saveBooking(bookingsList);
+
+		System.out.println("\n\t" + "Save booking data to csv file by Facade Pattern... done!");
+
+		System.out.println("\n\t" + "Show discounts and promo by Strategy Pattern...");
 
 		//Available Discounts and Promo
 		DiscountStrategyAPI Voffers = new VeteranDiscountStrategy();
@@ -71,12 +95,8 @@ public class Demo {
 		System.out.println("After applying Summer Discount:");
 		System.out.println("Price of flight"+summeroffers.CalculateDiscount(flights.get(0).getPrice()));
 
-		
-		
-
 		System.out.println("Initial Price of flight"+flights.get(0).getPrice());
 		System.out.println("After applying Veteran's Discount:");
-
 		System.out.println("Price of flight"+Voffers.CalculateDiscount(flights.get(0).getPrice()));
 
 		List<Booking> bookings = Qatar.getBookings();
@@ -86,17 +106,16 @@ public class Demo {
 		System.out.println("After applying Veteran's Discount:");
 		System.out.println("Price of flight"+flights.get(0).getPrice());
 
+		System.out.println("\n\t" + "Show discounts and promo by Strategy Pattern... done!");
 
+		System.out.println("\n\t" + "Add extra services for booking by Decorator Pattern...");
 
-		System.out.println("**********************************************");
-//
 		System.out.println("details of flight 1. "+flights.get(0).toString());
 		System.out.println("details of booking" + bookings.get(0).toString() + "Price :" + bookings.get(0).getFlight().getPrice() );
 		FlightUpgradeOptions f1 = new PremiumUpgrade(new FlightUpgradeImplementation(bookings.get(0)));
 		System.out.println(f1.getUpgradeDescription());
 		bookings.get(0).getFlight().setPrice(f1.getBasePrice());
 		System.out.println("details of booking" + bookings.get(0).toString() + "Price :" + bookings.get(0).getFlight().getPrice() );
-
 
 		System.out.println("details of flight 2. "+flights.get(1).toString());
 		System.out.println("details of booking" + bookings.get(1).toString() + "Price :" + bookings.get(1).getFlight().getPrice() );
@@ -112,10 +131,10 @@ public class Demo {
 		bookings.get(2).getFlight().setPrice(f3.getBasePrice());
 		System.out.println("details of booking" + bookings.get(2).toString() + "Price :" + bookings.get(2).getFlight().getPrice() );
 
-		
-	
-		System.out.println("**********************************************");
-		
+		System.out.println("\n\t" + "Add extra services for booking by Decorator Pattern... done!");
+
+		System.out.println("\n\t" + "Show flight prices in different currencies by Adapter Pattern...");
+
         USCurrency us_currency = new USCurrency();
         FlightPriceCurrency Ifpc = new INRCurrency();
         FlightPriceCurrency Cfpc = new CanadaCurrency();
@@ -133,10 +152,12 @@ public class Demo {
         
         System.out.println("CurrencyAdapter...adapter over Legacy API");
         c_adapter.showcurrency(bookings.get(0).getFlight().getPrice());
+
+		System.out.println("\n\t" + "Show flight prices in different currencies by Adapter Pattern... done!");
 		
-		
-		System.out.println("**********************************************");
-		System.out.println("Implementing the state pattern");
+
+		System.out.println("\n\t" + "Change flights states by State Pattern...");
+
 		FlightState fs = new FlightState(flights.get(0).getFlightID());
 		fs.onBoarding();
 		fs.inTransit();
@@ -147,7 +168,9 @@ public class Demo {
 		fs2.onBoarding();
 		fs2.cancelled();
 		fs2.inTransit();
-		System.out.println("Flight Scedule status: "+ fs2.isScheduled());
+		System.out.println("Flight Schedule status: "+ fs2.isScheduled());
+
+		System.out.println("\n\t" + "Change flights states by State Pattern... done!");
 
 	}
 }
