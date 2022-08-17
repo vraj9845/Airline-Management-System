@@ -30,6 +30,7 @@ System.out.println("FLightID: " +flightState.getFlightID() + " Already in Transi
 
     @Override
     public void offboarding() {
-        System.out.println("Error: Cannot go to Off Boarding state.");
+    	 flightState.setState(flightState.getOffBoarding());
+         System.out.println("FlightID: "+ flightState.getFlightID()+" is offBoarding.");
     }
 }

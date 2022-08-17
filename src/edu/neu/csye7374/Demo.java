@@ -180,9 +180,25 @@ public class Demo {
 
 		FlightState fs = new FlightState(flights.get(0).getFlightID());
 		fs.onBoarding();
-		fs.inTransit();
+//		fs.cancelled();
 		fs.delay();
 		fs.offboarding();
+		fs.onBoarding();
+		//
+		fs.inTransit();
+		fs.onBoarding();
+//		fs.cancelled();
+		fs.inTransit();
+		fs.delay();
+		//
+		fs.offboarding();
+	
+		fs.onBoarding();
+		fs.inTransit();
+		fs.delay();
+		fs.cancelled();
+		fs.offboarding();
+		
 		FlightState fs2 = new FlightState(flights.get(1).getFlightID());
 		fs2.delay();
 		fs2.onBoarding();
