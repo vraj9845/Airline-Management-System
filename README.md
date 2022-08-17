@@ -1,5 +1,6 @@
 # Airline-Management-System
 # Design Patterns Final Project
+https://www.youtube.com/watch?v=1Qtjy6t3YdA  - Link to recording of project presentation  
 [CSYE7374 FinalProjectPPT.pptx](https://github.com/vraj9845/Airline-Management-System/files/9355667/CSYE7374.FinalProjectPPT.pptx)  
   
 Team Members & Contributions:  
